@@ -247,8 +247,8 @@ VALUES
 -- ==========================================
 
 -- Operação Comercial (ID 1)
-INSERT INTO `sellera-data-prod.data_agents.commercial_operations` (commercial_operation_id, status_id, result_id) VALUES
-(1, 1, 1);
+INSERT INTO `sellera-data-prod.data_agents.commercial_operations` (commercial_operation_id, status_id, result_id, seller_persona_id) VALUES
+(1, 1, 1, 1); -- seller_persona_id = 1 (Consultor)
 
 -- Performance
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_performance` (commercial_operation_id, digital_sales_percentage, historical_conversion_rate, historical_lead_cost, last_twelve_months_investment) VALUES
@@ -359,15 +359,14 @@ INSERT INTO `sellera-data-prod.data_agents.commercial_operation_medias` (commerc
 (1, 1, 1, 1, 'https://storage.example.com/mapfre/logo.jpg', 'logo_mapfre.jpg'),
 (2, 1, 2, 3, 'https://storage.example.com/mapfre/video_campanha.mp4', 'video_campanha_auto.mp4');
 
-INSERT INTO `sellera-data-prod.data_agents.seller_personas` 
+INSERT INTO `sellera-data-prod.data_agents.seller_personas`
 (seller_persona_id, name, resolution_approach, education_level, etiquette, aggressiveness_level_id, temperament_level, speech_manner, patience_level)
-VALUES 
+VALUES
 (1, 'Consultor', 'Focado em resolver o problema do cliente com dados e lógica.', 'Alta (Pós-graduação/Especialista)', 'Impecável e profissional.', 1, 'Muito Calmo', 'Sério e Técnico', 'Alta (Sabe ouvir)'),
-(2, 'Desafiador', 'Provoca o cliente a pensar fora da caixa e mudar visões.', 'Alta (Visão de Negócios)', 'Assertiva e firme.', 3, 'Controlada', 'Firme e Provocativo', 'Média'),
-(3, 'O Lobo', 'Focado no fechamento rápido e em bater metas.', 'Variável (Foco em cursos práticos)', 'Direta, às vezes invasiva.', 5, 'Alta (Agitado)', 'Dominante e Energético', 'Baixa (Quer o "sim" logo)'),
-(4, 'Relacional', 'Constrói amizade antes de vender o produto.', 'Média a Alta (Humanas)', 'Cordial e calorosa.', 3, 'Calmo e Acolhedor', 'Descontraído e Amigável', 'Altíssima'),
-(5, 'Tirador de Pedido', 'Reativo, espera o cliente decidir sem pressionar.', 'Média (Ensino Médio/Técnico)', 'Padrão e básica.', 3, 'Estável / Passivo', 'Neutro e Sério', 'Média');
-
+(2, 'Desafiador', 'Provoca o cliente a pensar fora da caixa e mudar visões.', 'Alta (Visão de Negócios)', 'Assertiva e firme.', 2, 'Controlada', 'Firme e Provocativo', 'Média'),
+(3, 'O Lobo', 'Focado no fechamento rápido e em bater metas.', 'Variável (Foco em cursos práticos)','Direta, às vezes invasiva.', 3, 'Alta (Agitado)', 'Dominante e Energético', 'Baixa (Quer o "sim" logo)'),
+(4, 'Relacional', 'Constrói amizade antes de vender o produto.', 'Média a Alta (Humanas)', 'Cordial e calorosa.', 2, 'Calmo e Acolhedor', 'Descontraído e Amigável', 'Altíssima'),
+(5, 'Tirador de Pedido', 'Reativo, espera o cliente decidir sem pressionar.', 'Média (Ensino Médio/Técnico)', 'Padrão e básica.', 2, 'Estável / Passivo', 'Neutro e Sério', 'Média');
 -- ==========================================
 -- RELACIONAMENTOS 
 -- ==========================================
