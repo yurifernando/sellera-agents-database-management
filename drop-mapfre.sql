@@ -47,6 +47,8 @@ DROP TABLE `sellera-data-prod.data_agents.psychographic_characteristics`;
 DROP TABLE `sellera-data-prod.data_agents.transactional_characteristics`;
 DROP TABLE `sellera-data-prod.data_agents.commercial_operation_payment_methods`;
 DROP TABLE `sellera-data-prod.data_agents.commercial_operation_creative_packages`;
+DROP TABLE `sellera-data-prod.data_agents.creative_package_items`;
+DROP TABLE `sellera-data-prod.data_agents.creative_package_item_media_groups`;
 DROP TABLE `sellera-data-prod.data_agents.operational_efficiency_benchmarks`;
 DROP TABLE `sellera-data-prod.data_agents.calculated_feasibility_criteria`;
 DROP TABLE `sellera-data-prod.data_agents.commercial_operation_medias`;

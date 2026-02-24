@@ -47,6 +47,8 @@ DELETE FROM `sellera-data-prod.data_agents.psychographic_characteristics` WHERE 
 DELETE FROM `sellera-data-prod.data_agents.transactional_characteristics` WHERE TRUE;
 DELETE FROM `sellera-data-prod.data_agents.commercial_operation_payment_methods` WHERE TRUE;
 DELETE FROM `sellera-data-prod.data_agents.commercial_operation_creative_packages` WHERE TRUE;
+DELETE FROM `sellera-data-prod.data_agents.creative_package_items` WHERE TRUE;
+DELETE FROM `sellera-data-prod.data_agents.creative_package_item_media_groups` WHERE TRUE;
 DELETE FROM `sellera-data-prod.data_agents.operational_efficiency_benchmarks` WHERE TRUE;
 DELETE FROM `sellera-data-prod.data_agents.calculated_feasibility_criteria` WHERE TRUE;
 DELETE FROM `sellera-data-prod.data_agents.commercial_operation_medias` WHERE TRUE;
