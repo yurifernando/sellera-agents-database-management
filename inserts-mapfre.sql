@@ -246,16 +246,15 @@ VALUES
 -- ENTIDADES PRINCIPAIS
 -- ==========================================
 
--- Operação Comercial (ID 1)
+-- Operação Comercial
 INSERT INTO `sellera-data-prod.data_agents.commercial_operations` (commercial_operation_id, status_id, result_id, seller_persona_id) VALUES
-(1, 1, 1, 1); -- seller_persona_id = 1 (Consultor)
+(1, 1, 1, 1);
 
 -- Performance
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_performance` (commercial_operation_id, digital_sales_percentage, historical_conversion_rate, historical_lead_cost, last_twelve_months_investment) VALUES
 (1, 35.0, 4.5, 22.80, 2500000.00);
 
 -- Oferta
--- ALTERADO: removidos max_interest_free_installments e max_interest_bearing_installments
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_offer` (commercial_operation_id, name, description, average_ticket, max_discount_percentage, duration_weeks, sales_cycle_weeks, decision_maker_role, business_generation_target, geographic_location) VALUES
 (1, 'MAPFRE Auto Mais', 'Seguro automotivo completo com foco em condutores urbanos.', 1500.00, 10.0, 52, 1, 'Proprietário do Veículo / Gestor de Frota', 5000000.00, 'Brasil (Nacional)');
 
@@ -285,7 +284,6 @@ INSERT INTO `sellera-data-prod.data_agents.commercial_operation_cross_sell_produ
 (1, 'SKU-RESI-002', 'Seguro Residencial Simplificado', 800.00, 1, 3000000.00);
 
 -- ICP (Ideal Customer Profile)
--- ALTERADO: corrigido typo values_and_bilefs → values_and_beliefs
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_ideal_customer_profile` (
   commercial_operation_id, 
   lifestyle_and_hobbies, 
@@ -313,7 +311,6 @@ INSERT INTO `sellera-data-prod.data_agents.transactional_characteristics` (comme
 (1, 'Anual', 1500.00);
 
 -- Formas de Pagamento
--- ALTERADO: estrutura reestruturada com max_installments_without_interest e max_installments_with_interest por método
 -- (campos equivalentes aos antigos max_interest_free_installments / max_interest_bearing_installments da oferta)
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_payment_methods` (payment_method_id, commercial_operation_id, percentage, max_installments_without_interest, max_installments_with_interest) VALUES
 (1, 1, 70.0, 12, 24),  -- Cartão de Crédito
@@ -329,9 +326,8 @@ INSERT INTO `sellera-data-prod.data_agents.creative_package_items` (
     creative_package_item_id, commercial_operation_id, media_format_id, file_extension_id,
     file_url, file_name, client_already_has, should_be_used, is_creative_anchor, file_reference
 ) VALUES
-(1, 1, 8, NULL, NULL, NULL, false, true, true, ''),   -- Branded Content 60s (âncora criativa)
-(2, 1, 1, 1, 'https://storage.example.com/mapfre/logo.jpg', 'logo_mapfre.jpg', true, true, false, ''),
-(3, 1, 2, 3, 'https://storage.example.com/mapfre/video_campanha.mp4', 'video_campanha_auto.mp4', false, true, false, '');
+(1, 1, 1, 1, 'https://storage.example.com/mapfre/logo.jpg', 'logo_mapfre.jpg', true, true, false, ''),
+(2, 1, 2, 3, 'https://storage.example.com/mapfre/video_campanha.mp4', 'video_campanha_auto.mp4', false, true, false, '');
 
 -- Grupos de Mídia por Item Criativo (NOVO)
 INSERT INTO `sellera-data-prod.data_agents.creative_package_item_media_groups` (creative_package_item_id, media_group_id) VALUES
