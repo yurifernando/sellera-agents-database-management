@@ -51,7 +51,6 @@ VALUES
 (4, 'Afiliado'),
 (5, 'Rede Social');
 
-
 -- Grau de Maturidade da Empresa
 INSERT INTO `sellera-data-prod.data_agents.company_maturity_levels` (maturity_level_id, description) VALUES
 (1, 'iniciante'),
@@ -121,10 +120,11 @@ VALUES
 (7, 'Alimentos e Bebidas'),
 (8, 'Construção');
 
--- Tipos de Cross-Sell e Up-Sell
-INSERT INTO `sellera-data-prod.data_agents.cross_sell_up_sell_types` (cross_sell_up_sell_type_id, description) VALUES
-(1, 'Cross-Sell'),
-(2, 'Up-Sell');
+-- Tipos de Strategy Products
+INSERT INTO `sellera-data-prod.data_agents.strategy_products_types` (strategy_product_type_id, description) VALUES
+(1, 'Cross Sell'),
+(2, 'Up Sell'),
+(3, 'Order Bump');
 
 -- Métodos de Pagamento
 INSERT INTO `sellera-data-prod.data_agents.payment_methods` (payment_method_id, method) VALUES
@@ -149,7 +149,6 @@ INSERT INTO `sellera-data-prod.data_agents.file_extensions` (file_extension_id, 
 (5, '.pdf'),
 (6, '.mp3');
 
-
 -- Formatos de Mídia
 INSERT INTO `sellera-data-prod.data_agents.media_formats` 
 (media_format_id, description) 
@@ -159,7 +158,6 @@ VALUES
 (2, 'Pre-roll 15s'),
 (3, 'Puláveis 16:9 (Até 6 min)'),
 (4, 'Não Puláveis 16:9 (15s a 20s)'),
-
 -- Filmes (TV e Cinema)
 (5, 'Vinheta 5s'),
 (6, 'Comercial 15s'),
@@ -167,24 +165,20 @@ VALUES
 (8, 'Branded Content 60s'),
 (9, 'Branded Content 90s'),
 (10, 'Branded Content 120s'),
-
 -- OOH
 (11, 'Estático pontos de ônibus'),
 (12, 'Estático relógios de rua'),
 (13, 'Estático (Motion) pontos de ônibus'),
 (14, 'Estático (Motion) relógios de rua'),
-
 -- DOOH
 (15, 'Vinheta 15s'),
 (16, 'Vinheta 30s'),
-
 -- Social Media
 (17, 'Vídeo Reels 9:16'),
 (18, 'Carrossel'),
 (19, 'Post Estático'),
 (20, 'Stories Interativos'),
 (21, 'Briefing de creators'),
-
 -- Performance
 (22, 'Leaderboard Desktop 728 x 90'),
 (23, 'Leaderboard Mobile 320 x 50'),
@@ -195,38 +189,31 @@ VALUES
 (28, 'Meia Página 300 x 600'),
 (29, 'Quadrado 200 x 200'),
 (30, 'Quadrado 250 x 250'),
-
 -- Landing Page
 (31, 'Landing Page Primária'),
 (32, 'Landing Page Secundária'),
-
 -- Lead Magnet
 (33, 'Webinar'),
 (34, 'Infográficos'),
 (35, 'eBooks'),
 (36, 'Tutoriais'),
 (37, 'FAQs'),
-
 -- Nutrição
 (38, 'Régua e-mails Nutrição (3 a 5 peças)'),
 (39, 'Régua SMSs Nutrição (3 a 5 peças)'),
 (40, 'Régua Templates WhatsApp Nutrição (3 a 5 peças)'),
-
 -- Resgate/Reaquecimento
 (41, 'Régua e-mails Resgate/Reaquecimento (3 a 5 peças)'),
 (42, 'Régua SMSs Resgate/Reaquecimento (3 a 5 peças)'),
 (43, 'Régua Templates WhatsApp Resgate/Reaquecimento (3 a 5 peças)'),
-
 -- Onboarding e Adoção
 (44, 'Régua e-mails Onboarding/Adoção (3 a 5 peças)'),
 (45, 'Régua SMSs Onboarding/Adoção (3 a 5 peças)'),
 (46, 'Régua Templates WhatsApp Onboarding/Adoção (3 a 5 peças)'),
-
 -- Promoção e Referral
 (47, 'Régua e-mails Promoção/Referral (3 a 5 peças)'),
 (48, 'Régua SMSs Promoção/Referral (3 a 5 peças)'),
 (49, 'Régua Templates WhatsApp Promoção/Referral (3 a 5 peças)');
-
 
 -- Grupos de Mídia
 INSERT INTO `sellera-data-prod.data_agents.media_groups` (media_group_id, description) VALUES
@@ -250,7 +237,7 @@ INSERT INTO `sellera-data-prod.data_agents.profile_incomes` (profile_income_id, 
 (3, 'R$ 7.001 a R$ 15.000'),
 (4, 'Acima de R$ 15.000');
 
-INSERT INTO `sellera-data-prod.data_agents.aggressiveness_levels` (aggressiveness_level_id , description) 
+INSERT INTO `sellera-data-prod.data_agents.aggressiveness_levels` (aggressiveness_level_id, description) 
 VALUES 
 (1, 'Baixa'), 
 (2, 'Média'), 
@@ -260,23 +247,19 @@ VALUES
 -- ENTIDADES PRINCIPAIS
 -- ==========================================
 
--- Operação Comercial (ID 1)
-INSERT INTO `sellera-data-prod.data_agents.commercial_operations` (commercial_operation_id, status_id, result_id) VALUES
-(1, 1, 1);
+-- Operação Comercial
+INSERT INTO `sellera-data-prod.data_agents.commercial_operations` (commercial_operation_id, status_id, result_id, seller_persona_id) VALUES
+(1, 1, 1, 1);
 
--- Dados Gerais da Operação (REMOVIDA - campos migraram para commercial_operation_products)
--- INSERT INTO `sellera-data-prod.data_agents.commercial_operation_data` (commercial_operation_id, average_ticket, main_technical_functional_features, pains_eliminated_with_use, annual_gross_revenue_sku) VALUES
--- (1, 1500.00, 'Assistência dia e noite, guincho ilimitado, cobertura de vidros e faróis.', 'Insegurança em sinistros e alto custo de reparo imediato.', 12000000.00);
-
--- Performance (ALTERADO: adicionado last_twelve_months_investment)
+-- Performance
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_performance` (commercial_operation_id, digital_sales_percentage, historical_conversion_rate, historical_lead_cost, last_twelve_months_investment) VALUES
 (1, 35.0, 4.5, 22.80, 2500000.00);
 
--- Oferta (ALTERADO: adicionados geographic_location, max_interest_free_installments, max_interest_bearing_installments, corrigido sales_cycle_weeks)
-INSERT INTO `sellera-data-prod.data_agents.commercial_operation_offer` (commercial_operation_id, name, description, average_ticket, max_discount_percentage, duration_weeks, sales_cycle_weeks, decision_maker_role, business_generation_target, geographic_location, max_interest_free_installments, max_interest_bearing_installments) VALUES
-(1, 'MAPFRE Auto Mais', 'Seguro automotivo completo com foco em condutores urbanos.', 1500.00, 10.0, 52, 1, 'Proprietário do Veículo / Gestor de Frota', 5000000.00, 'Brasil (Nacional)', 12, 24);
+-- Oferta
+INSERT INTO `sellera-data-prod.data_agents.commercial_operation_offer` (commercial_operation_id, name, description, average_ticket, max_discount_percentage, duration_weeks, sales_cycle_weeks, decision_maker_role, business_generation_target, geographic_location) VALUES
+(1, 'MAPFRE Auto Mais', 'Seguro automotivo completo com foco em condutores urbanos.', 1500.00, 10.0, 52, 1, 'Proprietário do Veículo / Gestor de Frota', 5000000.00, 'Brasil (Nacional)');
 
--- Empresa (MAPFRE) - ALTERADO: sector substituído por market_segment_id
+-- Empresa (MAPFRE)
 INSERT INTO `sellera-data-prod.data_agents.companies` (commercial_operation_id, city_state_id, stage_id, revenue_range_id, employee_count_range_id, maturity_level_id, market_segment_id, company_name, cnpj, annual_gross_revenue) VALUES
 (1, 1, 2, 1, 1, 2, 2, 'MAPFRE Seguros Gerais S.A.', '61.074.175/0001-38', 15000000000.00);
 
@@ -288,32 +271,36 @@ INSERT INTO `sellera-data-prod.data_agents.company_contacts` (contact_id, commer
 INSERT INTO `sellera-data-prod.data_agents.company_trade_sites` (trade_site_id, commercial_operation_id, name, url) VALUES
 (1, 1, 'Portal Mapfre Brasil', 'https://www.mapfre.com.br');
 
--- Concorrentes (ALTERADO: adicionados relevance_score e future_relevance_score)
+-- Concorrentes
 INSERT INTO `sellera-data-prod.data_agents.company_competitors` (competitor_id, commercial_operation_id, name, url, relevance_score, future_relevance_score) VALUES
 (1, 1, 'Porto Seguro', 'https://www.portoseguro.com.br', 9.5, 9.0),
 (2, 1, 'Bradesco Seguros', 'https://www.bradescoseguros.com.br', 9.0, 8.5);
 
--- Produtos da Operação (ALTERADO: adicionados average_ticket, main_technical_functional_features, pains_eliminated_with_use, annual_gross_revenue_sku)
+-- Produtos da Operação
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_products` (commercial_operation_id, sku, name, is_main_product, average_ticket, main_technical_functional_features, pains_eliminated_with_use, annual_gross_revenue_sku) VALUES
 (1, 'SKU-AUTO-001', 'Seguro Auto Premium', true, 1500.00, 'Assistência dia e noite, guincho ilimitado, cobertura de vidros e faróis.', 'Insegurança em sinistros e alto custo de reparo imediato.', 12000000.00);
 
--- Produtos Cross-Sell (ALTERADO: adicionados average_ticket, cross_sell_up_sell_type_id, annual_gross_revenue_sku)
-INSERT INTO `sellera-data-prod.data_agents.commercial_operation_cross_sell_products` (commercial_operation_id, sku, name, average_ticket, cross_sell_up_sell_type_id, annual_gross_revenue_sku) VALUES
-(1, 'SKU-RESI-002', 'Seguro Residencial Simplificado', 800.00, 1, 3000000.00);
+-- Produtos de Strategy (Cross Sell, Up Sell, Order Bump)
+INSERT INTO `sellera-data-prod.data_agents.commercial_operation_strategy_products` (commercial_operation_id, sku, name, average_ticket, cross_sell_up_sell_type_id, annual_gross_revenue_sku) VALUES
+(1, 'SEG-RESI-001', 'Seguro Residencial Simplificado',  800.00, 1, 3000000.00),
+(1, 'SEG-AUTO-002', 'Seguro Auto Premium Plus',        2200.00, 2, 8000000.00),
+(1, 'ASS-24H-003',  'Assistência 24h Truck e Van',      350.00, 3, 1500000.00);
 
 -- ICP (Ideal Customer Profile)
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_ideal_customer_profile` (
-  commercial_operation_id, 
-  lifestyle_and_hobbies, 
-  values_and_bilefs, 
-  price_quality_sensitivity, 
-  brand_loyalty
+  commercial_operation_id,
+  lifestyle_and_hobbies,
+  values_and_beliefs,
+  price_quality_sensitivity,
+  brand_loyalty,
+  yearly_purchase_frequency
 ) VALUES (
   1,
   'Indivíduos que dependem do veículo para trabalho ou lazer familiar. Valorizam estabilidade e a manutenção da rotina sem interrupções por imprevistos.',
   'Foco em proteção patrimonial e responsabilidade civil (danos a terceiros). Priorizam a tranquilidade e o suporte especializado.',
   'Equilibrada; o cliente entende que o valor do prêmio reflete a agilidade na assistência e a solidez da seguradora em caso de sinistro.',
-  'Alta; tende a renovar a apólice anualmente se houver confiança na marca e atendimento eficiente.'
+  'Alta; tende a renovar a apólice anualmente se houver confiança na marca e atendimento eficiente.',
+  5
 );
 
 -- Relacionamento N:N entre ICP e Níveis Sociais
@@ -328,15 +315,30 @@ INSERT INTO `sellera-data-prod.data_agents.psychographic_characteristics` (comme
 INSERT INTO `sellera-data-prod.data_agents.transactional_characteristics` (commercial_operation_id, purchase_frequency, average_order_value) VALUES
 (1, 'Anual', 1500.00);
 
--- Formas de Pagamento (ALTERADO: agora usa payment_method_id e percentage obrigatório)
-INSERT INTO `sellera-data-prod.data_agents.commercial_operation_payment_methods` (payment_method_id, commercial_operation_id, percentage) VALUES
-(1, 1, 70.0),
-(2, 1, 30.0);
+-- Formas de Pagamento
+-- (campos equivalentes aos antigos max_interest_free_installments / max_interest_bearing_installments da oferta)
+INSERT INTO `sellera-data-prod.data_agents.commercial_operation_payment_methods` (payment_method_id, commercial_operation_id, percentage, max_installments_without_interest, max_installments_with_interest) VALUES
+(1, 1, 70.0, 12, 24),  -- Cartão de Crédito
+(2, 1, 30.0, 1, 1);    -- Boleto Bancário
 
 -- Pacotes de Produção Criativa
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_creative_packages` (commercial_operation_id, creative_package_id, creative_package_price)
 VALUES 
   (1, 4, 100000.00);
+
+-- Itens de Peça Criativa (NOVO: substitui commercial_operation_medias como entidade principal de criativos)
+INSERT INTO `sellera-data-prod.data_agents.creative_package_items` (
+    creative_package_item_id, commercial_operation_id, media_format_id, file_extension_id,
+    file_url, file_name, client_already_has, should_be_used, is_creative_anchor, file_reference
+) VALUES
+(1, 1, 1, 1, 'https://storage.example.com/mapfre/logo.jpg', 'logo_mapfre.jpg', true, true, false, ''),
+(2, 1, 2, 3, 'https://storage.example.com/mapfre/video_campanha.mp4', 'video_campanha_auto.mp4', false, true, false, '');
+
+-- Grupos de Mídia por Item Criativo (NOVO)
+INSERT INTO `sellera-data-prod.data_agents.creative_package_item_media_groups` (creative_package_item_id, media_group_id) VALUES
+(1, 1), -- Branded Content → Geração de awareness
+(2, 1), -- Logo → Geração de awareness
+(3, 2); -- Vídeo campanha → Geração de leads
 
 -- Benchmark de Eficiencia Operacional
 INSERT INTO `sellera-data-prod.data_agents.operational_efficiency_benchmarks`
@@ -348,34 +350,33 @@ VALUES
 
 -- Critérios de Viabilidade Calculados
 INSERT INTO `sellera-data-prod.data_agents.calculated_feasibility_criteria` (calculated_feasibility_criteria_id, commercial_operation_id, feasibility_criteria_id, calculated_value) VALUES
-(1, 1, 1, 5.0),  -- ROAS Mínimo
-(2, 1, 2, 100.0), -- CPL Máximo
-(3, 1, 3, 3.5),  -- TMC Mínimo
+(1, 1, 1, 5.0),      -- ROAS Mínimo
+(2, 1, 2, 100.0),    -- CPL Máximo
+(3, 1, 3, 3.5),      -- TMC Mínimo
 (4, 1, 4, 50000.00); -- Volume Mínimo de Investimento
 
--- Mídias da Operação Comercial (exemplo)
+-- Mídias da Operação Comercial (mantida para compatibilidade)
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_medias` (commercial_operation_media_id, commercial_operation_id, media_format_id, file_extension_id, file_url, file_name) VALUES
 (1, 1, 1, 1, 'https://storage.example.com/mapfre/logo.jpg', 'logo_mapfre.jpg'),
 (2, 1, 2, 3, 'https://storage.example.com/mapfre/video_campanha.mp4', 'video_campanha_auto.mp4');
 
-INSERT INTO `sellera-data-prod.data_agents.seller_personas` 
+INSERT INTO `sellera-data-prod.data_agents.seller_personas`
 (seller_persona_id, name, resolution_approach, education_level, etiquette, aggressiveness_level_id, temperament_level, speech_manner, patience_level)
-VALUES 
+VALUES
 (1, 'Consultor', 'Focado em resolver o problema do cliente com dados e lógica.', 'Alta (Pós-graduação/Especialista)', 'Impecável e profissional.', 1, 'Muito Calmo', 'Sério e Técnico', 'Alta (Sabe ouvir)'),
-(2, 'Desafiador', 'Provoca o cliente a pensar fora da caixa e mudar visões.', 'Alta (Visão de Negócios)', 'Assertiva e firme.', 3, 'Controlada', 'Firme e Provocativo', 'Média'),
-(3, 'O Lobo', 'Focado no fechamento rápido e em bater metas.', 'Variável (Foco em cursos práticos)', 'Direta, às vezes invasiva.', 5, 'Alta (Agitado)', 'Dominante e Energético', 'Baixa (Quer o "sim" logo)'),
-(4, 'Relacional', 'Constrói amizade antes de vender o produto.', 'Média a Alta (Humanas)', 'Cordial e calorosa.', 3, 'Calmo e Acolhedor', 'Descontraído e Amigável', 'Altíssima'),
-(5, 'Tirador de Pedido', 'Reativo, espera o cliente decidir sem pressionar.', 'Média (Ensino Médio/Técnico)', 'Padrão e básica.', 3, 'Estável / Passivo', 'Neutro e Sério', 'Média');
-
+(2, 'Desafiador', 'Provoca o cliente a pensar fora da caixa e mudar visões.', 'Alta (Visão de Negócios)', 'Assertiva e firme.', 2, 'Controlada', 'Firme e Provocativo', 'Média'),
+(3, 'O Lobo', 'Focado no fechamento rápido e em bater metas.', 'Variável (Foco em cursos práticos)','Direta, às vezes invasiva.', 3, 'Alta (Agitado)', 'Dominante e Energético', 'Baixa (Quer o "sim" logo)'),
+(4, 'Relacional', 'Constrói amizade antes de vender o produto.', 'Média a Alta (Humanas)', 'Cordial e calorosa.', 2, 'Calmo e Acolhedor', 'Descontraído e Amigável', 'Altíssima'),
+(5, 'Tirador de Pedido', 'Reativo, espera o cliente decidir sem pressionar.', 'Média (Ensino Médio/Técnico)', 'Padrão e básica.', 2, 'Estável / Passivo', 'Neutro e Sério', 'Média');
 -- ==========================================
 -- RELACIONAMENTOS 
 -- ==========================================
 
--- Focos da Oferta (Segmentos) - RENOMEADA para commercial_operation_business_models
+-- Focos da Oferta (Segmentos)
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_business_models` (commercial_operation_id, business_model_id) VALUES
 (1, 2); -- B2C
 
--- Canais da Oferta (ALTERADO: adicionado priority_order)
+-- Canais da Oferta
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_acquisition_channels` (commercial_operation_id, acquisition_channel_id, priority_order) VALUES
 (1, 3, 1), -- Linkedin (prioridade 1)
 (1, 4, 2); -- TikTok (prioridade 2)
@@ -391,7 +392,7 @@ INSERT INTO `sellera-data-prod.data_agents.commercial_operation_attributes` (com
 (1, 1), -- desconto
 (1, 2); -- parcelado
 
--- Canais de Transação (ALTERADO: adicionado percentage)
+-- Canais de Transação
 INSERT INTO `sellera-data-prod.data_agents.transaction_channels` (commercial_operation_id, purchase_preference_channel_id, percentage) VALUES
 (1, 1, 100.0); -- loja online (100%)
 
@@ -401,8 +402,8 @@ INSERT INTO `sellera-data-prod.data_agents.commercial_operations_advertising_ass
 
 -- Grupos de Mídia da Operação
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_media_groups` (commercial_operation_id, media_group_id) VALUES
-(1, 1), -- Criativos de Campanha
-(1, 3); -- Logos e Identidade Visual
+(1, 1), -- Geração de awareness
+(1, 3); -- Nutrição de leads
 
 -- Modelos de Negócio
 INSERT INTO `sellera-data-prod.data_agents.company_business_models` (commercial_operation_id, business_model_id) VALUES
@@ -442,7 +443,7 @@ VALUES
 -- GLOBAIS
 -- ==========================================
 
--- Parametro Globais
+-- Parâmetros Globais
 INSERT INTO `sellera-data-prod.data_agents.global_parameters` (
     global_parameter_id, 
     lead_processing_cost, 
@@ -451,7 +452,7 @@ INSERT INTO `sellera-data-prod.data_agents.global_parameters` (
 )
 VALUES (1, 20, 500, 10);
 
--- Canais Comunicacao Notaveis
+-- Canais Comunicação Notáveis
 INSERT INTO `sellera-data-prod.data_agents.notable_communication_vehicles` (
     notable_communication_vehicle_id, 
     name, 
@@ -466,4 +467,3 @@ VALUES
     (5, 'Exame', 'exame.com'),
     (8, 'InfoMoney', 'infomoney.com.br'),
     (2, 'NeoFeed', 'neofeed.com.br');
-

@@ -95,8 +95,8 @@ CREATE TABLE `sellera-data-prod.data_agents.market_segments` (
 );
 
 -- Tipos de Cross-Sell e Up-Sell
-CREATE TABLE `sellera-data-prod.data_agents.cross_sell_up_sell_types` (
-    cross_sell_up_sell_type_id INT64,
+CREATE TABLE `sellera-data-prod.data_agents.strategy_products_types` (
+    strategy_product_type_id INT64,
     description STRING
 );
 
@@ -167,7 +167,7 @@ CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_data` (
     annual_gross_revenue_sku NUMERIC
 );
 
--- Performance da Operação Comercial (ALTERADO: adicionado last_twelve_months_investment)
+-- Performance da Operação Comercial
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_performance` (
     commercial_operation_id INT64,
     digital_sales_percentage NUMERIC,
@@ -176,7 +176,9 @@ CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_performance` (
     last_twelve_months_investment NUMERIC
 );
 
--- Oferta da Operação Comercial (ALTERADO: novos campos adicionados)
+-- Oferta da Operação Comercial
+-- ALTERADO: removidos max_interest_free_installments e max_interest_bearing_installments
+-- (parcelamento agora está em commercial_operation_payment_methods)
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_offer` (
     commercial_operation_id INT64,
     name STRING,
@@ -187,12 +189,10 @@ CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_offer` (
     sales_cycle_weeks INT64,
     decision_maker_role STRING,
     business_generation_target NUMERIC,
-    geographic_location STRING,
-    max_interest_free_installments INT64,
-    max_interest_bearing_installments INT64
+    geographic_location STRING
 );
 
--- Empresas (ALTERADO: campo sector substituído por market_segment_id)
+-- Empresas
 CREATE TABLE `sellera-data-prod.data_agents.companies` (
     commercial_operation_id INT64,
     city_state_id INT64,
@@ -223,7 +223,7 @@ CREATE TABLE `sellera-data-prod.data_agents.company_trade_sites` (
     url STRING
 );
 
--- Concorrentes da Empresa (ALTERADO: adicionados campos de relevância)
+-- Concorrentes da Empresa
 CREATE TABLE `sellera-data-prod.data_agents.company_competitors` (
     competitor_id INT64,
     commercial_operation_id INT64,
@@ -233,7 +233,7 @@ CREATE TABLE `sellera-data-prod.data_agents.company_competitors` (
     future_relevance_score NUMERIC
 );
 
--- Produtos da Operação (ALTERADO: relacionamento 1:1, novos campos adicionados)
+-- Produtos da Operação
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_products` (
     commercial_operation_id INT64,
     sku STRING,
@@ -245,13 +245,13 @@ CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_products` (
     annual_gross_revenue_sku NUMERIC
 );
 
--- Produtos de Cross-Sell (ALTERADO: novos campos adicionados)
-CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_cross_sell_products` (
+-- Produtos de Cross-Sell
+CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_strategy_products` (
     commercial_operation_id INT64,
     sku STRING,
     name STRING,
     average_ticket NUMERIC,
-    cross_sell_up_sell_type_id INT64,
+    strategy_product_type_id INT64,
     annual_gross_revenue_sku NUMERIC
 );
 
@@ -259,9 +259,10 @@ CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_cross_sell_prod
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_ideal_customer_profile` (
   commercial_operation_id INT64,
   lifestyle_and_hobbies STRING,
-  values_and_bilefs STRING,
+  values_and_beliefs STRING,
   price_quality_sensitivity STRING,
   brand_loyalty STRING,
+  yearly_purchase_frequency INT64
 );
 
 -- Relacionamento N:N entre ICP e Níveis Sociais
@@ -286,18 +287,42 @@ CREATE TABLE `sellera-data-prod.data_agents.transactional_characteristics` (
     average_order_value NUMERIC
 );
 
--- Formas de Pagamento (ALTERADO: agora relaciona com payment_methods)
+-- Formas de Pagamento
+-- ALTERADO: adicionados max_installments_without_interest e max_installments_with_interest por método
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_payment_methods` (
     payment_method_id INT64,
     commercial_operation_id INT64,
-    percentage NUMERIC
+    percentage NUMERIC,
+    max_installments_without_interest INT64,
+    max_installments_with_interest INT64
 );
 
--- Pacotes de Produção Criativa
+-- Pacotes de Produção Criativa (associação operação ↔ pacote)
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_creative_packages` (
     commercial_operation_id INT64,
     creative_package_id INT64,
     creative_package_price NUMERIC
+);
+
+-- Itens de Peça Criativa (NOVO: substitui commercial_operation_medias como entidade principal de criativos)
+-- Representa cada item criativo do briefing com flags de uso e âncora
+CREATE TABLE `sellera-data-prod.data_agents.creative_package_items` (
+    creative_package_item_id INT64,
+    commercial_operation_id INT64,
+    media_format_id INT64,
+    file_extension_id INT64,
+    file_url STRING,
+    file_name STRING,
+    client_already_has BOOL,
+    should_be_used BOOL,
+    is_creative_anchor BOOL,
+    file_reference STRING
+);
+
+-- Grupos de Mídia por Item Criativo (NOVO: relação N:N entre creative_package_items e media_groups)
+CREATE TABLE `sellera-data-prod.data_agents.creative_package_item_media_groups` (
+    creative_package_item_id INT64,
+    media_group_id INT64
 );
 
 -- Benchmark de Eficiencia Operacional
@@ -318,7 +343,7 @@ CREATE TABLE `sellera-data-prod.data_agents.calculated_feasibility_criteria` (
     calculated_value NUMERIC
 );
 
--- Mídias da Operação Comercial
+-- Mídias da Operação Comercial (mantida para compatibilidade com arquivos/uploads avulsos)
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_medias` (
     commercial_operation_media_id INT64,
     commercial_operation_id INT64,
@@ -345,13 +370,13 @@ CREATE TABLE `sellera-data-prod.data_agents.seller_personas` (
 -- RELACIONAMENTOS 
 -- ==========================================
 
--- Focos da Oferta (Segmentos) - RENOMEADA
+-- Focos da Oferta (Segmentos)
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_business_models` (
     commercial_operation_id INT64,
     business_model_id INT64
 );
 
--- Canais da Oferta (ALTERADO: adicionado priority_order)
+-- Canais da Oferta
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_acquisition_channels` (
     commercial_operation_id INT64,
     acquisition_channel_id INT64,
@@ -370,7 +395,7 @@ CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_attributes` (
     attribute_id INT64
 );
 
--- Canais de Transação (ALTERADO: adicionado percentage)
+-- Canais de Transação
 CREATE TABLE `sellera-data-prod.data_agents.transaction_channels` (
     commercial_operation_id INT64,
     purchase_preference_channel_id INT64,
