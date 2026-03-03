@@ -95,8 +95,8 @@ CREATE TABLE `sellera-data-prod.data_agents.market_segments` (
 );
 
 -- Tipos de Cross-Sell e Up-Sell
-CREATE TABLE `sellera-data-prod.data_agents.cross_sell_up_sell_types` (
-    cross_sell_up_sell_type_id INT64,
+CREATE TABLE `sellera-data-prod.data_agents.strategy_products_types` (
+    strategy_product_type_id INT64,
     description STRING
 );
 
@@ -246,23 +246,23 @@ CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_products` (
 );
 
 -- Produtos de Cross-Sell
-CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_cross_sell_products` (
+CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_strategy_products` (
     commercial_operation_id INT64,
     sku STRING,
     name STRING,
     average_ticket NUMERIC,
-    cross_sell_up_sell_type_id INT64,
+    strategy_product_type_id INT64,
     annual_gross_revenue_sku NUMERIC
 );
 
 -- Ideal Customer Profiles (ICP)
--- ALTERADO: corrigido typo values_and_bilefs → values_and_beliefs
 CREATE TABLE `sellera-data-prod.data_agents.commercial_operation_ideal_customer_profile` (
   commercial_operation_id INT64,
   lifestyle_and_hobbies STRING,
   values_and_beliefs STRING,
   price_quality_sensitivity STRING,
-  brand_loyalty STRING
+  brand_loyalty STRING,
+  yearly_purchase_frequency INT64
 );
 
 -- Relacionamento N:N entre ICP e Níveis Sociais

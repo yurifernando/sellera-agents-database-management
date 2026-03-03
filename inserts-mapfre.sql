@@ -120,10 +120,11 @@ VALUES
 (7, 'Alimentos e Bebidas'),
 (8, 'Construção');
 
--- Tipos de Cross-Sell e Up-Sell
-INSERT INTO `sellera-data-prod.data_agents.cross_sell_up_sell_types` (cross_sell_up_sell_type_id, description) VALUES
-(1, 'Cross-Sell'),
-(2, 'Up-Sell');
+-- Tipos de Strategy Products
+INSERT INTO `sellera-data-prod.data_agents.strategy_products_types` (strategy_product_type_id, description) VALUES
+(1, 'Cross Sell'),
+(2, 'Up Sell'),
+(3, 'Order Bump');
 
 -- Métodos de Pagamento
 INSERT INTO `sellera-data-prod.data_agents.payment_methods` (payment_method_id, method) VALUES
@@ -279,23 +280,27 @@ INSERT INTO `sellera-data-prod.data_agents.company_competitors` (competitor_id, 
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_products` (commercial_operation_id, sku, name, is_main_product, average_ticket, main_technical_functional_features, pains_eliminated_with_use, annual_gross_revenue_sku) VALUES
 (1, 'SKU-AUTO-001', 'Seguro Auto Premium', true, 1500.00, 'Assistência dia e noite, guincho ilimitado, cobertura de vidros e faróis.', 'Insegurança em sinistros e alto custo de reparo imediato.', 12000000.00);
 
--- Produtos Cross-Sell
-INSERT INTO `sellera-data-prod.data_agents.commercial_operation_cross_sell_products` (commercial_operation_id, sku, name, average_ticket, cross_sell_up_sell_type_id, annual_gross_revenue_sku) VALUES
-(1, 'SKU-RESI-002', 'Seguro Residencial Simplificado', 800.00, 1, 3000000.00);
+-- Produtos de Strategy (Cross Sell, Up Sell, Order Bump)
+INSERT INTO `sellera-data-prod.data_agents.commercial_operation_strategy_products` (commercial_operation_id, sku, name, average_ticket, cross_sell_up_sell_type_id, annual_gross_revenue_sku) VALUES
+(1, 'SEG-RESI-001', 'Seguro Residencial Simplificado',  800.00, 1, 3000000.00),
+(1, 'SEG-AUTO-002', 'Seguro Auto Premium Plus',        2200.00, 2, 8000000.00),
+(1, 'ASS-24H-003',  'Assistência 24h Truck e Van',      350.00, 3, 1500000.00);
 
 -- ICP (Ideal Customer Profile)
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_ideal_customer_profile` (
-  commercial_operation_id, 
-  lifestyle_and_hobbies, 
-  values_and_beliefs, 
-  price_quality_sensitivity, 
-  brand_loyalty
+  commercial_operation_id,
+  lifestyle_and_hobbies,
+  values_and_beliefs,
+  price_quality_sensitivity,
+  brand_loyalty,
+  yearly_purchase_frequency
 ) VALUES (
   1,
   'Indivíduos que dependem do veículo para trabalho ou lazer familiar. Valorizam estabilidade e a manutenção da rotina sem interrupções por imprevistos.',
   'Foco em proteção patrimonial e responsabilidade civil (danos a terceiros). Priorizam a tranquilidade e o suporte especializado.',
   'Equilibrada; o cliente entende que o valor do prêmio reflete a agilidade na assistência e a solidez da seguradora em caso de sinistro.',
-  'Alta; tende a renovar a apólice anualmente se houver confiança na marca e atendimento eficiente.'
+  'Alta; tende a renovar a apólice anualmente se houver confiança na marca e atendimento eficiente.',
+  5
 );
 
 -- Relacionamento N:N entre ICP e Níveis Sociais
