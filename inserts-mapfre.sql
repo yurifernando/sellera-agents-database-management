@@ -281,10 +281,10 @@ INSERT INTO `sellera-data-prod.data_agents.commercial_operation_products` (comme
 (1, 'SKU-AUTO-001', 'Seguro Auto Premium', true, 1500.00, 'Assistência dia e noite, guincho ilimitado, cobertura de vidros e faróis.', 'Insegurança em sinistros e alto custo de reparo imediato.', 12000000.00);
 
 -- Produtos de Strategy (Cross Sell, Up Sell, Order Bump)
-INSERT INTO `sellera-data-prod.data_agents.commercial_operation_strategy_products` (commercial_operation_id, sku, name, average_ticket, cross_sell_up_sell_type_id, annual_gross_revenue_sku) VALUES
-(1, 'SEG-RESI-001', 'Seguro Residencial Simplificado',  800.00, 1, 3000000.00),
-(1, 'SEG-AUTO-002', 'Seguro Auto Premium Plus',        2200.00, 2, 8000000.00),
-(1, 'ASS-24H-003',  'Assistência 24h Truck e Van',      350.00, 3, 1500000.00);
+INSERT INTO `sellera-data-prod.data_agents.commercial_operation_strategy_products` (commercial_operation_id, sku, name, average_ticket, strategy_product_type_id, annual_gross_revenue_sku) VALUES
+(1, 'SEG-RESI-001', 'Seguro Residencial Simplificado', 800.00, 1, 3000000.00),
+(1, 'SEG-AUTO-002', 'Seguro Auto Premium Plus', 2200.00, 2, 8000000.00),
+(1, 'ASS-24H-003',  'Assistência 24h Truck e Van', 350.00, 3, 1500000.00);
 
 -- ICP (Ideal Customer Profile)
 INSERT INTO `sellera-data-prod.data_agents.commercial_operation_ideal_customer_profile` (
