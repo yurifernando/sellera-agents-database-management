@@ -1,8 +1,7 @@
 CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operations` (
   commercial_operation_id INT64,
   name                 STRING,
-  status_id               INT64,
-  result_id               INT64
+  status_id               INT64
 );
 
 CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_keywords` (

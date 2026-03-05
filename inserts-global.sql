@@ -22,4 +22,4 @@ VALUES
   (5, 'Exame',           'exame.com'),
   (6, 'IstoÉ',           'istoe.com.br'),
   (7, 'Yahoo Finance',   'finance.yahoo.com'),
-  (8, 'InfoMoney',       'infomoney.com.br');
+  (8, 'InfoMoney',       'infomoney.com.br');  
