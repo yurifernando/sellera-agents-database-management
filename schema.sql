@@ -191,9 +191,10 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operati
   commercial_operation_id  INT64,
   sku                      STRING,
   name                     STRING,
-  average_ticket           NUMERIC,
+  average_ticket           FLOAT64,
   strategy_product_type    STRING,
-  annual_gross_revenue_sku NUMERIC
+  annual_gross_revenue_sku FLOAT64,
+  core_product_fit_score   INT64
 );
 
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_payment_methods` (
