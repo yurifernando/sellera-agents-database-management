@@ -1,15 +1,15 @@
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operations` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operations` (
   commercial_operation_id INT64,
-  name                 STRING,
+  name                    STRING,
   status_id               INT64
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_keywords` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_keywords` (
   commercial_operation_id INT64,
   keyword                 STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_ideal_customer_profile` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_ideal_customer_profile` (
   commercial_operation_id   INT64,
   lifestyle_and_hobbies     STRING,
   values_and_beliefs        STRING,
@@ -18,7 +18,7 @@ CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_
   yearly_purchase_frequency INT64
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_offer` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_offer` (
   commercial_operation_id    INT64,
   name                       STRING,
   description                STRING,
@@ -31,7 +31,7 @@ CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_
   geographic_location        STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_performance` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_performance` (
   commercial_operation_id       INT64,
   digital_sales_percentage      NUMERIC,
   historical_conversion_rate    NUMERIC,
@@ -39,23 +39,23 @@ CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_
   last_twelve_months_investment NUMERIC
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_products` (
-  commercial_operation_id             INT64,
-  sku                                 STRING,
-  name                                STRING,
-  is_main_product                     BOOL,
-  average_ticket                      NUMERIC,
-  main_technical_functional_features  STRING,
-  pains_eliminated_with_use           STRING,
-  annual_gross_revenue_sku            NUMERIC
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_products` (
+  commercial_operation_id            INT64,
+  sku                                STRING,
+  name                               STRING,
+  is_main_product                    BOOL,
+  average_ticket                     NUMERIC,
+  main_technical_functional_features STRING,
+  pains_eliminated_with_use          STRING,
+  annual_gross_revenue_sku           NUMERIC
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_statuses` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_statuses` (
   status_id   INT64,
   description STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.agent_outputs` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.agent_outputs` (
   commercial_operation_id INT64,
   agent_name              STRING,
   output_key              STRING,
@@ -65,20 +65,20 @@ CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.agent_outputs` (
   created_at              TIMESTAMP
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.global_parameters` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.global_parameters` (
   global_parameter_id           INT64,
   lead_processing_cost          NUMERIC,
   min_creative_production_value NUMERIC,
   minimum_attractiveness_rate   NUMERIC
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.notable_communication_vehicles` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.notable_communication_vehicles` (
   notable_communication_vehicle_id INT64,
   name                             STRING,
   url                              STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.psychographic_characteristics` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.psychographic_characteristics` (
   commercial_operation_id INT64,
   lifestyle               STRING,
   values_beliefs          STRING,
@@ -86,50 +86,50 @@ CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.psychographic_charact
   brand_affinity          STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.transactional_characteristics` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.transactional_characteristics` (
   commercial_operation_id INT64,
   purchase_frequency      STRING,
   average_order_value     NUMERIC
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.companies` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.companies` (
   commercial_operation_id INT64,
   company_name            STRING,
   cnpj                    STRING,
   annual_gross_revenue    NUMERIC
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_market_segments` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_market_segments` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_revenue_ranges` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_revenue_ranges` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_employee_count_ranges` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_employee_count_ranges` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_stages` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_stages` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_maturity_levels` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_maturity_levels` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_city_states` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_city_states` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_competitors` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_competitors` (
   commercial_operation_id INT64,
   name                    STRING,
   url                     STRING,
@@ -137,57 +137,57 @@ CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_competitors` 
   future_relevance_score  NUMERIC
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_contacts` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_contacts` (
   commercial_operation_id INT64,
   name                    STRING,
   email                   STRING,
   phone                   STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_trade_sites` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_trade_sites` (
   commercial_operation_id INT64,
   name                    STRING,
   url                     STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_acquisition_channels` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_acquisition_channels` (
   commercial_operation_id INT64,
   description             STRING,
   priority_order          INT64
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operations_advertising_asset_types` (
+-- CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operations_advertising_asset_types` (
+--   commercial_operation_id INT64,
+--   description             STRING
+-- );
+
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_attributes` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_attributes` (
-  commercial_operation_id INT64,
-  description             STRING
-);
-
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.transaction_channels` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.transaction_channels` (
   commercial_operation_id INT64,
   description             STRING,
   percentage              NUMERIC
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.company_business_models` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.company_business_models` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_business_models` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_business_models` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.ideal_customer_profile_social_levels` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_social_levels` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_strategy_products` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_strategy_products` (
   commercial_operation_id  INT64,
   sku                      STRING,
   name                     STRING,
@@ -196,7 +196,7 @@ CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_
   annual_gross_revenue_sku NUMERIC
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_payment_methods` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_payment_methods` (
   commercial_operation_id           INT64,
   method                            STRING,
   percentage                        NUMERIC,
@@ -204,7 +204,7 @@ CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_
   max_installments_with_interest    INT64
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.seller_personas` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.seller_personas` (
   commercial_operation_id INT64,
   name                    STRING,
   resolution_approach     STRING,
@@ -216,12 +216,12 @@ CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.seller_personas` (
   patience_level          STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.ideal_customer_profile_incomes` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_incomes` (
   commercial_operation_id INT64,
   description             STRING
 );
 
-CREATE OR REPLACE TABLE `sellera-data-prod.data_agents_dev.ideal_customer_profile_ages` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_ages` (
   commercial_operation_id INT64,
   description             STRING
 );
