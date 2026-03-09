@@ -184,7 +184,8 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operati
 
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_social_levels` (
   commercial_operation_id INT64,
-  description             STRING
+  description             STRING,
+  percentage              NUMERIC
 );
 
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_strategy_products` (
@@ -225,4 +226,29 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_pro
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_ages` (
   commercial_operation_id INT64,
   description             STRING
+);
+
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.creative_package_items` (
+  commercial_operation_id INT64,
+  client_already_has BOOL,
+  should_be_used BOOL,
+  is_creative_anchor BOOL,
+  file_reference STRING,
+  file_url STRING,
+  file_name STRING,
+  file_extension STRING,
+  media_format STRING,
+  media_groups ARRAY<STRUCT<description STRING>>
+);
+
+CREATE TABLE  IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_creative_packages` (
+    commercial_operation_id INTEGER,
+    price NUMERIC
+);
+
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_efficiency_benchmarks` (
+    commercial_operation_id INTEGER,
+    roas_benchmark          NUMERIC,
+    cvr_benchmark           NUMERIC,
+    cpl_benchmark           NUMERIC
 );

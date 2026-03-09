@@ -10,7 +10,6 @@ DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_att
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_business_models`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_strategy_products`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_payment_methods`;
-DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.commercial_operations_advertising_asset_types`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.agent_outputs`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.global_parameters`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.notable_communication_vehicles`;
@@ -32,3 +31,6 @@ DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_s
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_incomes`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_ages`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.seller_personas`;
+DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.creative_package_items`;
+DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_creative_packages`;
+DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_efficiency_benchmarks`;
