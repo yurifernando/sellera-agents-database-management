@@ -105,3 +105,7 @@ WHERE commercial_operation_id = {op_id};
 --Agent
 DELETE FROM `sellera-data-prod.data_agents_dev.agent_outputs`
 WHERE commercial_operation_id = {op_id};
+
+--Temporário
+DELETE FROM `sellera-data-prod.data_agents_dev.commercial_operation_json_briefing_received`
+WHERE commercial_operation_id = {op_id};

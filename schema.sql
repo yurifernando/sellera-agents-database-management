@@ -252,3 +252,9 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operati
     cvr_benchmark           NUMERIC,
     cpl_benchmark           NUMERIC
 );
+
+-- Temporário
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_json_briefing_received` (
+  commercial_operation_id INT64,
+  payload                 STRING
+);
