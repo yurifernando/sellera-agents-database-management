@@ -29,6 +29,7 @@ DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.company_business_models`
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_social_levels`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_incomes`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_ages`;
+DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_payment_methods`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.seller_personas`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.creative_package_items`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_creative_packages`;

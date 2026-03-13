@@ -220,6 +220,12 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_pro
   description             STRING
 );
 
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_payment_methods` (
+  commercial_operation_id INT64,
+  description             STRING,
+  percentage              NUMERIC
+);
+
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.creative_package_items` (
   commercial_operation_id INT64,
   client_already_has BOOL,

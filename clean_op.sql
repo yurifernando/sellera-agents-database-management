@@ -81,6 +81,9 @@ WHERE commercial_operation_id = {op_id};
 DELETE FROM `sellera-data-prod.data_agents_dev.ideal_customer_profile_social_levels`
 WHERE commercial_operation_id = {op_id};
 
+DELETE FROM `sellera-data-prod.data_agents_dev.ideal_customer_payment_methods`
+WHERE commercial_operation_id = {op_id};
+
 DELETE FROM `sellera-data-prod.data_agents_dev.commercial_operation_ideal_customer_profile`
 WHERE commercial_operation_id = {op_id};
 

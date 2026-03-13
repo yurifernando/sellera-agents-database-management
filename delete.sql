@@ -30,5 +30,6 @@ TRUNCATE TABLE `sellera-data-prod.data_agents_dev.company_business_models`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.ideal_customer_profile_social_levels`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.ideal_customer_profile_incomes`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.ideal_customer_profile_ages`;
+TRUNCATE TABLE `sellera-data-prod.data_agents_dev.ideal_customer_payment_methods`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.seller_personas`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.creative_package_items`;
