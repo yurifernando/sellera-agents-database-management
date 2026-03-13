@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operati
   sales_cycle_weeks          INT64,
   decision_maker_role        STRING,
   business_generation_target NUMERIC,
-  geographic_location        STRING
+  geographic_location        ARRAY<STRUCT<description STRING>>
 );
 
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_performance` (
