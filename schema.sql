@@ -78,14 +78,6 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.notable_communicat
   url                              STRING
 );
 
-CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.psychographic_characteristics` (
-  commercial_operation_id INT64,
-  lifestyle               STRING,
-  values_beliefs          STRING,
-  price_sensitivity       STRING,
-  brand_affinity          STRING
-);
-
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.transactional_characteristics` (
   commercial_operation_id INT64,
   purchase_frequency      STRING,

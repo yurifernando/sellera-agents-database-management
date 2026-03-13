@@ -13,7 +13,6 @@ DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_pay
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.agent_outputs`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.global_parameters`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.notable_communication_vehicles`;
-DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.psychographic_characteristics`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.transactional_characteristics`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.transaction_channels`;
 DROP TABLE IF EXISTS `sellera-data-prod.data_agents_dev.companies`;

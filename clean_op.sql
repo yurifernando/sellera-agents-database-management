@@ -71,9 +71,6 @@ WHERE commercial_operation_id = {op_id};
 DELETE FROM `sellera-data-prod.data_agents_dev.transaction_channels`
 WHERE commercial_operation_id = {op_id};
 
-DELETE FROM `sellera-data-prod.data_agents_dev.psychographic_characteristics`
-WHERE commercial_operation_id = {op_id};
-
 -- ICP
 DELETE FROM `sellera-data-prod.data_agents_dev.ideal_customer_profile_ages`
 WHERE commercial_operation_id = {op_id};

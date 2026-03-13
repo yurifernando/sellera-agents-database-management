@@ -14,7 +14,6 @@ TRUNCATE TABLE `sellera-data-prod.data_agents_dev.commercial_operation_payment_m
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.agent_outputs`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.global_parameters`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.notable_communication_vehicles`;
-TRUNCATE TABLE `sellera-data-prod.data_agents_dev.psychographic_characteristics`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.transactional_characteristics`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.transaction_channels`;
 TRUNCATE TABLE `sellera-data-prod.data_agents_dev.companies`;
