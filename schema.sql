@@ -9,15 +9,6 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operati
   keyword                 STRING
 );
 
-CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_ideal_customer_profile` (
-  commercial_operation_id   INT64,
-  lifestyle_and_hobbies     STRING,
-  values_and_beliefs        STRING,
-  price_quality_sensitivity STRING,
-  brand_loyalty             STRING,
-  yearly_purchase_frequency INT64
-);
-
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_offer` (
   commercial_operation_id    INT64,
   name                       STRING,
@@ -174,12 +165,6 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operati
   description             STRING
 );
 
-CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_social_levels` (
-  commercial_operation_id INT64,
-  description             STRING,
-  percentage              NUMERIC
-);
-
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_strategy_products` (
   commercial_operation_id  INT64,
   sku                      STRING,
@@ -220,10 +205,27 @@ CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_pro
   description             STRING
 );
 
-CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_payment_methods` (
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_social_levels` (
   commercial_operation_id INT64,
   description             STRING,
   percentage              NUMERIC
+);
+
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.ideal_customer_profile_payment_methods` (
+  commercial_operation_id INT64,
+  description             STRING,
+  percentage              NUMERIC
+);
+
+CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.commercial_operation_ideal_customer_profile` (
+  commercial_operation_id   INT64,
+  ages                      ARRAY<STRUCT<description STRING>>,
+  income                    STRING,
+  lifestyle_and_hobbies     STRING,
+  values_and_beliefs        STRING,
+  price_quality_sensitivity STRING,
+  brand_loyalty             STRING,
+  yearly_purchase_frequency INT64
 );
 
 CREATE TABLE IF NOT EXISTS `sellera-data-prod.data_agents_dev.creative_package_items` (
